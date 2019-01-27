@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>{{header}}</h1>
+  </div>
+      <div class="container">
+    <div class="row">
+      <div class="col-sm-2 form-group">Name:</div>
+      <div class="col-sm-4 form-group">{{name}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 form-group">Employee id:</div>
+      <div class="col-sm-4 form-group">{{empid}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">Drop Address:</div>
+      <div class="col-sm-4 form-group"><textarea class="form-control" rows="5" id="comment" required name="text" [(ngModel)]="address"></textarea></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">Pick up date:</div>
+      <div class="col-sm-4 form-group">
+      <input type="text" id="travelDate" name="travelDate" bsDatepicker [minDate]="minDate" class="form-control" [(ngModel)]="travelDate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">Pick up time:</div>
+      <div class="col-sm-4 form-group">
+      <select class="form-control form-control-sm" id="selSem" [(ngModel)]="time">
+              <option value="0">--Choose time--</option>
+              <option value="6:30 PM">6:30 PM</option>
+              <option value="7:30 PM">7:30 PM</option>
+              <option value="8:30 PM">8:30 PM</option>
+              <option value="9:30 PM">9:30 PM</option>
+              <option value="10:30 PM">10:30 PM</option>
+              <option value="11:30 PM">11:30 PM</option>
+              <option value="12:30 AM">12:30 AM</option>
+      </select>
+      </div>
+    </div>
+      <div class="row" id="divBtnGn">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+        <button id="btnBk" [hidden]="dispUpdate" class="btn btn-primary btn-block btn-sm"(click)="BookCab()" type="button">Confirm Booking</button>
+        <button id="btnUpBk" [hidden]="!dispUpdate" class="btn btn-primary btn-block btn-sm"(click)="UpdateCab()" type="button">Update Booking</button>
+        </div>
+          </div>
+      </div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Booking History</h1>
+</div>
+<div class="container">
+    <!-- <div class="row ">
+        <div class="col-sm-5 form-group">Address</div>
+        <div class="col-sm-3 form-group">Date</div>
+        <div class="col-sm-2 form-group">Time</div>
+        <div class="col-sm-2 form-group">Action</div>
+      </div> -->
+  <div class="alert alert-dark alert-dismissible" *ngFor="let cabHist of fetchData">
+    <div class="row ">
+      <div class="col-sm-5 form-group">{{cabHist.address}}</div>
+      <div class="col-sm-3 form-group">{{cabHist.date| date:'MM/dd/yyyy'}}</div>
+      <div class="col-sm-2 form-group">{{cabHist.time}}</div>
+      <div class="col-sm-1 form-group">
+        <button type="button" *ngIf="toDisplay(cabHist.date)" class="btn btn-outline-info"
+          (click)="EditCab(cabHist._id,cabHist.address,cabHist.date,cabHist.time)">Edit</button>
+      </div>
+      <div class="col-sm-1 form-group">
+        <button type="button" *ngIf="toDisplay(cabHist.date)" class="btn btn-outline-danger" (click)="DeleteCab(cabHist._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <ul class="pagination pagination-sm justify-content-end">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+
+</div>
