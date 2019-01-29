@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import 'rxjs/RX';
 import { map } from 'rxjs/operators';
+import 'rxjs/RX';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class CabserviceService {
     this.messageSource.next(user);
   }
 
-  constructor(private http: Http, private httpClient: HttpClient) { }
+  constructor(private httpc: Http, private http: HttpClient) { }
 
   validateUser(id, pwd): any {
     // return this.http.get("http://localhost:3000/validateuser/" + id + "/" + pwd)
