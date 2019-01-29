@@ -24,29 +24,34 @@ export class CabserviceService {
   constructor(private http: Http, private httpClient: HttpClient) { }
 
   validateUser(id, pwd): any {
-    return this.http.get("http://localhost:3000/validateuser/" + id + "/" + pwd)
+    // return this.http.get("http://localhost:3000/validateuser/" + id + "/" + pwd)
+    return this.http.get("validateuser/" + id + "/" + pwd)
       .map(
         (response: Response) => response.json()
       )
   }
 
   addUser(User) {
-    return this.http.post("http://localhost:3000/adduser", User);
+    // return this.http.post("http://localhost:3000/adduser", User);
+    return this.http.post("adduser", User);
   }
 
   bookCab(cabDtls) {
-    return this.http.post("http://localhost:3000/bookcab", cabDtls);
+    // return this.http.post("http://localhost:3000/bookcab", cabDtls);
+    return this.http.post("bookcab", cabDtls);
   }
 
   getEmpCabHistory(mapid) {
-    return this.http.get("http://localhost:3000/cabhistory/" + mapid)
+    // return this.http.get("http://localhost:3000/cabhistory/" + mapid)
+    return this.http.get("cabhistory/" + mapid)
       .map(
         (response: Response) => response.json()
       )
   }
 
   getAllCabHistory() {
-    return this.http.get("http://localhost:3000/cabhistory")
+    // return this.http.get("http://localhost:3000/cabhistory")
+    return this.http.get("cabhistory")
       .map(
         (response: Response) => response.json()
       )
@@ -58,10 +63,12 @@ export class CabserviceService {
       address: Updates.address,
       time: Updates.time
     };
-    return this.http.put("http://localhost:3000/cabhistory/" + Updates.bookid, bodyObj);
+    // return this.http.put("http://localhost:3000/cabhistory/" + Updates.bookid, bodyObj);
+    return this.http.put("cabhistory/" + Updates.bookid, bodyObj);
   }
 
   deleteCab(cabid) {
-    return this.http.delete("http://localhost:3000/cabhistory/" + cabid);
+    // return this.http.delete("http://localhost:3000/cabhistory/" + cabid);
+    return this.http.delete("cabhistory/" + cabid);
   }
 }
