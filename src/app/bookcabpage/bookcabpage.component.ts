@@ -37,8 +37,6 @@ export class BookcabpageComponent implements OnInit {
     // this.name = this.user.name;
     // this.empid = this.user.empid;
     // this.mapid = this.user.mapid;
-    console.log(this.minDate.toLocaleDateString());
-    console.log(this.minDate.toDateString());
     this.name = sessionStorage.getItem('name');
     this.empid = sessionStorage.getItem('empid');
     this.mapid = sessionStorage.getItem('mapid');
@@ -49,7 +47,6 @@ export class BookcabpageComponent implements OnInit {
       if (params['bookid']) {
         this.bookid = params['bookid'];
         this.address = params['address'];
-        console.log(params['date']);
         this.travelDate = new Date(params['date']);
         this.time = params['time'];
         this.header = "Edit Cab";
@@ -77,11 +74,9 @@ export class BookcabpageComponent implements OnInit {
     if (confirm("Are you sure you want to update the booking?")) {
       this.cabService.updateCabDetails(Updates).subscribe(
         (response) => {
-          console.log("Success: " + response);
           this.router.navigate(['/bookhome', { outlets: { navbar: 'bookhistory' } }]);
         },
         (error) => {
-          console.log(error);
           alert("Something went wrong");
         }
       );
@@ -96,15 +91,12 @@ export class BookcabpageComponent implements OnInit {
       time: this.time,
       date: this.travelDate.toLocaleDateString()
     }
-    console.log(cabDtls);
 
     this.cabService.bookCab(cabDtls).subscribe(
       (response) => {
-        console.log("Success: " + response);
         alert("Succesfuly booked the cab");
       },
       (error) => {
-        console.log(error);
         alert("Sorry, cab booking failed");
       }
     );

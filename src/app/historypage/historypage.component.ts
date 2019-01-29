@@ -52,7 +52,6 @@ export class HistorypageComponent implements OnInit {
   GetAllHistory() {
     this.cabService.getAllCabHistory().subscribe(
       (historyData: any[]) => {
-        console.log(historyData);
         this.fetchData = historyData;
       },
       (error) => console.log(error)
@@ -62,7 +61,6 @@ export class HistorypageComponent implements OnInit {
   GetBookingHistory(mapid) {
     this.cabService.getEmpCabHistory(mapid).subscribe(
       (historyData: any[]) => {
-        console.log(historyData);
         this.fetchData = historyData;
       },
       (error) => console.log(error)
@@ -77,11 +75,9 @@ export class HistorypageComponent implements OnInit {
     if (confirm("Are you sure you want to delete the booking?")) {
       this.cabService.deleteCab(bookid).subscribe(
         (response) => {
-          console.log("Success: " + response);
           this.GetBookingHistory(this.mapid);
         },
         (error) => {
-          console.log(error);
           alert("Something went wrong");
         }
       );

@@ -43,7 +43,6 @@ onAddUser(form: NgForm){
   }
   this.cabService.addUser(user).subscribe(
     (response) => {
-      console.log("Success: " + response);
       alert("Succesfuly registered the user");
       this.router.navigate(['/']);
     },

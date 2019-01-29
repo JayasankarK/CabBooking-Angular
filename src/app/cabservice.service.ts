@@ -64,14 +64,4 @@ export class CabserviceService {
   deleteCab(cabid) {
     return this.http.delete("http://localhost:3000/cabhistory/" + cabid);
   }
-
-  // setUser(User){
-  //   this.user={'mapid':User.mapid,'empid':User.empid,'name':User.name};
-  //   console.log(this.user);
-  // }
-  // getUser(){
-  //   console.log('get');
-  //   console.log(this.user);
-  //   return this.user;
-  // }
 }

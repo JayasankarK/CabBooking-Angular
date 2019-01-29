@@ -11,7 +11,6 @@ isAdmin:string='';
 
   ngOnInit() {
     this.isAdmin=sessionStorage.getItem('isAdmin');
-    console.log(this.isAdmin);
   }
 onLogout(){
   sessionStorage.clear();
