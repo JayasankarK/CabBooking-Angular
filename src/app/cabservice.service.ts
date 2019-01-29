@@ -3,9 +3,7 @@ import { Http, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import 'rxjs/RX';
-import { query } from '@angular/core/src/render3/query';
-import { strictEqual } from 'assert';
-import { stringify } from '@angular/compiler/src/util';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +24,12 @@ export class CabserviceService {
   validateUser(id, pwd): any {
     // return this.http.get("http://localhost:3000/validateuser/" + id + "/" + pwd)
     return this.http.get("validateuser/" + id + "/" + pwd)
-      .map(
+      // .map(
+      //   (response: Response) => response.json()
+      // )
+      .pipe(map(
         (response: Response) => response.json()
-      )
+      ))
   }
 
   addUser(User) {
@@ -44,17 +45,17 @@ export class CabserviceService {
   getEmpCabHistory(mapid) {
     // return this.http.get("http://localhost:3000/cabhistory/" + mapid)
     return this.http.get("cabhistory/" + mapid)
-      .map(
+      .pipe(map(
         (response: Response) => response.json()
-      )
+      ))
   }
 
   getAllCabHistory() {
     // return this.http.get("http://localhost:3000/cabhistory")
     return this.http.get("cabhistory")
-      .map(
+      .pipe(map(
         (response: Response) => response.json()
-      )
+      ))
   }
 
   updateCabDetails(Updates) {
