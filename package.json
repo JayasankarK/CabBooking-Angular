@@ -2,6 +2,7 @@
   "name": "night-cab-booking",
   "version": "0.0.0",
   "scripts": {
+    "preinstall": "npm install -g @angular/cli @angular/compiler-cli typescript",
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
