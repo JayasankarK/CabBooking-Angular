@@ -39,6 +39,7 @@ export class CabserviceService {
 
   bookCab(cabDtls) {
     // return this.http.post("http://localhost:3000/bookcab", cabDtls);
+    console.log("success");
     return this.http.post("bookcab", cabDtls);
   }
 
